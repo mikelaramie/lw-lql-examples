@@ -1,0 +1,18 @@
+"evaluatorId": ""
+"queryId": "ALL_AWS_GWS"
+"queryText": 
+  "ALL_AWS_GWS {
+    source {
+      LW_CFG_AWS_EC2_INTERNET_GATEWAY
+    } 
+    filter {
+      ARN = '%ec2%'
+    }
+    return distinct { 
+      ARN,
+      API_KEY,
+      SERVICE,
+      ACCOUNT_ID
+    }
+}"
+

@@ -1,0 +1,26 @@
+"evaluatorId": ""
+"queryId": "MACHINES_ALL_KERNELS"
+"queryText": 
+  "MACHINES_ALL_KERNELS {
+    source {
+      LW_HE_MACHINES
+    } 
+    filter {
+      OS = 'Amazon Linux'
+    }
+    return distinct { 
+      BATCH_START_TIME, 
+      BATCH_END_TIME, 
+      RECORD_CREATED_TIME, 
+      MID, 
+      HOSTNAME, 
+      DOMAIN, 
+      KERNEL, 
+      KERNEL_RELEASE, 
+      KERNEL_VERSION, 
+      OS, 
+      OS_VERSION, 
+      OS_DESC
+    }
+}"
+

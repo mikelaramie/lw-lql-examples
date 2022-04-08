@@ -1,0 +1,24 @@
+"evaluatorId": ""
+"queryId": "LW_GLOBAL_IAM_ACCESS"
+"queryText":
+  "LW_GLOBAL_IAM_ACCESS {
+    source {
+      CloudTrailRawEvents
+    }
+    filter {
+      EVENT_SOURCE = 'iam.amazonaws.com'
+      and (EVENT_NAME LIKE 'List%'
+      or  EVENT_NAME LIKE 'Get%'
+      or  EVENT_NAME LIKE 'Describe%'
+      or  EVENT_NAME = 'GenerateServiceLastAccessedDetails')
+      AND ERROR_CODE is null
+      AND EVENT:eventType = 'AwsApiCall'
+      AND EVENT:userIdentity.arn NOT IN ('arn:aws:sts:123456789012:assumed-role/security-team/exclude.user')
+    }
+    return distinct {
+      INSERT_ID,
+      INSERT_TIME,
+      EVENT_TIME,
+      EVENT
+    }
+}"

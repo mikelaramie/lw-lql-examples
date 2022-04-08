@@ -1,0 +1,20 @@
+"evaluatorId": ""
+"queryId": "ALL_GCP_INSTANCES"
+"queryText": 
+  "ALL_GCP_INSTANCES {
+    source {
+      LW_CFG_GCP_ALL
+    } 
+    filter {
+      URN like '%instances%'
+    }
+    return distinct { 
+      URN,
+      API_KEY,
+      SERVICE,
+      ORGANIZATION,
+      PROJECT,
+      PROJECT_ID,
+      RESOURCE_CONFIG
+    }
+}"

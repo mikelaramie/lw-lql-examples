@@ -1,0 +1,38 @@
+LW_Custom_Host_Activity_PotentialReverseShell {
+    source {
+        LW_HE_PROCESSES
+    }
+    filter {
+        ((RIGHT(EXE_PATH, 3) = '/sh'
+            or RIGHT(EXE_PATH, 4) = '/ash'
+            or RIGHT(EXE_PATH, 5) = '/bash'
+            or RIGHT(EXE_PATH, 5) = '/dash')
+            and not CONTAINS(CMDLINE, '.vscode-server')
+            and not CONTAINS(CMDLINE, 'ssh -i')
+            and (CMDLINE = 'sh -i'
+                or LEFT(CMDLINE, 6) = 'sh -i '
+                or CONTAINS(CMDLINE, '/sh -i ')
+                or RIGHT(CMDLINE, 6) = '/sh -i'
+                or CMDLINE = 'bash -i'
+                or LEFT(CMDLINE, 8) = 'bash -i '
+                or CONTAINS(CMDLINE, '/bash -i ')
+                or RIGHT(CMDLINE, 8) = '/bash -i')
+        )
+        or (RIGHT(EXE_PATH, 3) = '/nc' and CONTAINS(CMDLINE, ' -e'))
+        or (CONTAINS(CMDLINE, 'xterm -display'))
+        or (CONTAINS(CMDLINE, '.exec(["/bin/bash"'))
+        or (CONTAINS(CMDLINE, '.spawn("/bin/sh")'))
+        or (CONTAINS(CMDLINE, 'subprocess.call(["/bin/sh"'))
+    }
+    return distinct {
+        MID,
+        CMDLINE,
+        EXE_PATH,
+        PID,
+        PID_HASH,
+        PROCESS_START_TIME,
+        USERNAME
+    }
+}
+
+ADD_MINUTES (-1, timestamp )

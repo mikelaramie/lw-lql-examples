@@ -1,0 +1,12 @@
+"evaluatorId": ""
+"queryId": "ALL_CONTAINERS"
+"queryText": 
+  "ALL_CONTAINERS {
+    source {
+      LW_HE_CONTAINERS
+    } 
+    return distinct { 
+      REPO,
+      TAG
+    }
+}"

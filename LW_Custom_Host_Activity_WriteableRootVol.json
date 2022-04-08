@@ -1,0 +1,45 @@
+LW_Custom_Host_Activity_WriteableRootVolumeMap {
+    source {
+        LW_HE_CONTAINERS
+    }
+    filter {
+        contains(VOLUME_MAP::String, ':"/"')
+        and not contains(VOLUME_MAP::String, ':ro":"/"')
+        and not contains(REPO, 'lacework')
+        and right(REPO, 13) <> 'node-exporter'
+        and REPO not in (
+            'docker.io/amazon/cloudwatch-agent',
+            'docker.io/dynatrace/oneagent',
+            'docker.io/google/cadvisor',
+            'docker.io/kopeio/etcd-manager',
+            'docker.io/library/protokube',
+            'docker.io/netapp/trident',
+            'docker.io/newrelic/infrastructure-k8s',
+            'docker.io/openshift/prometheus-node-exporter',
+            'docker.io/prom/node-exporter',
+            'docker.io/rancher/prom-node-exporter',
+            'gcr.io/cadvisor/cadvisor',
+            'gcr.io/customer-facing/signalfx/signalfx-agent',
+            'gcr.io/datadoghq/agent',
+            'gcr.io/pixie-oss/pixie-prod/vizier/pem_image',
+            'gke.gcr.io/watcher-daemonset',
+            'k8s.gcr.io/etcdadm/etcd-manager',
+            'mcr.microsoft.com/azuredefender/stable/security-publisher',
+            'mcr.microsoft.com/azuremonitor/containerinsights/ciprod',
+            'quay.io/openshift/okd-content',
+            'quay.io/prometheus/node-exporter',
+            'quay.io/signalfx/signalfx-agent',
+            'registry.redhat.io/openshift4/file-integrity-rhel8-operator',
+            'docker.io/longhornio/longhorn-instance-manager',
+            'docker.io/longhornio/longhorn-manager'
+    }
+    return distinct {
+        CONTAINER_START_TIME,
+        MID,
+        CONTAINER_ID,
+        CONTAINER_NAME,
+        REPO,
+        VOLUME_MAP,
+        TAG
+    }
+}

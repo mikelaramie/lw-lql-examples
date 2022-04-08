@@ -1,0 +1,17 @@
+"evaluatorId": ""
+"queryId": "DNS_ALL_SEARCHES"
+"queryText": 
+  "DNS_ALL_SEARCHES {
+    source {
+      LW_HA_DNS_REQUESTS
+    } 
+    filter {
+      HOSTNAME = 'appdoubler.go2jump.org'
+    }
+    return distinct { 
+      RECORD_CREATED_TIME,
+      MID,
+      SRV_IP_ADDR,
+      HOST_IP_ADDR
+    }
+}"
