@@ -1,0 +1,17 @@
+"evaluatorId": ""
+"queryId": "LW_AWS_ACCESS_KEY"
+"queryText":
+  "LW_AWS_ACCESS_KEY {
+    source {
+      CloudTrailRawEvents
+    }
+    filter {
+      contains(EVENT:responseElements, 'ASIAWZVK5IFGN77WI7FK')
+    }
+    return distinct {
+      INSERT_ID,
+      INSERT_TIME,
+      EVENT_TIME,
+      EVENT
+    }
+}"
