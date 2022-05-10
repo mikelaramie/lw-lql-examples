@@ -1,0 +1,17 @@
+"evaluatorId": ""
+"queryId": "ALL_IMAGES_FROM_REPO"
+"queryText": 
+  "ALL_IMAGES_FROM_REPO {
+    source {
+      LW_HE_IMAGES
+    }
+    filter {
+      contains(REPO, 'us-docker.pkg.dev')
+    }
+    return distinct { 
+      ACTIVE_COUNT,
+      IMAGE_ID,
+      REPO, 
+      TAG
+    }
+}"

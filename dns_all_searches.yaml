@@ -6,7 +6,7 @@
       LW_HA_DNS_REQUESTS
     } 
     filter {
-      HOSTNAME = 'appdoubler.go2jump.org'
+      HOSTNAME = 'google.com'
     }
     return distinct { 
       RECORD_CREATED_TIME,

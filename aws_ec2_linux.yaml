@@ -1,0 +1,14 @@
+"evaluatorId": ""
+"queryId": "ALL_EC2_LINUX_INSTANCES"
+"queryText": 
+  "ALL_EC2_LINUX_INSTANCES {
+    source {
+      LW_CFG_AWS_EC2_INSTANCES
+    } 
+    filter {
+      RESOURCE_CONFIG:PlatformDetails like '%inux%'
+    }
+    return distinct { 
+      ARN
+    }
+}"

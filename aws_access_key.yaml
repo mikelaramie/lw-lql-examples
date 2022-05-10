@@ -6,7 +6,7 @@
       CloudTrailRawEvents
     }
     filter {
-      contains(EVENT:responseElements, 'ASIAWZVK5IFGN77WI7FK')
+      contains(EVENT:responseElements, 'ASIA')
     }
     return distinct {
       INSERT_ID,
