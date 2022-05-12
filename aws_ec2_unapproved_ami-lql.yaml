@@ -1,0 +1,15 @@
+"evaluatorId": ""
+"queryId": "ALL_EC2_UNAPPROVED_AMI"
+"queryText": 
+  "ALL_EC2_UNAPPROVED_AMI {
+    source {
+      LW_CFG_AWS_EC2_INSTANCES
+    } 
+    filter {
+      ACCOUNT_ALIAS = 'laramie' AND
+      RESOURCE_CONFIG:ImageId not like 'ami-019212a8baeffb0fa'
+    }
+    return distinct { 
+      ARN
+    }
+  }"

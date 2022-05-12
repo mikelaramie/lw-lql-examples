@@ -1,0 +1,17 @@
+---
+policyId: $account-lwpolicytest-01
+title: EC2 Unapproved AMI
+enabled: true
+policyType: Violation
+alertEnabled: true
+alertProfile: LW_CFG_AWS_DEFAULT_PROFILE.CFG_AWS_Violation
+evalFrequency: Hourly
+queryId: ALL_EC2_UNAPPROVED_AMI
+limit: 1000
+severity: high
+description: |-
+  EC2 Instance detected running an unapproved AMI.  See `ALL_EC2_UNAPPROVED_AMI` query details for list of approved AMIs
+remediation: |-
+  Determine why EC2 instance was launched with unapproved AMI, relaunch with approved AMI.
+tags:
+  - lwpolicytest

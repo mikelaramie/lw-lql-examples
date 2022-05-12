@@ -1,0 +1,22 @@
+"evaluatorId": ""
+"queryId": "HOST_APT_INSTALL"
+"queryText": 
+  "HOST_APT_INSTALL {
+    source {
+      LW_HE_PROCESSES process with
+      (
+      LW_HE_MACHINES machine,
+      LW_HE_USERS user
+      )
+    }
+    filter {
+      (process.CMDLINE like '%apt-%install%' )
+    }
+    return distinct {
+      process.MID,
+      machine.HOSTNAME,
+      process.USERNAME,
+      user.PRIMARY_GROUP_NAME,
+      process.CMDLINE
+    }
+  }"

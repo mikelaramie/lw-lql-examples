@@ -1,12 +1,12 @@
 "evaluatorId": ""
-"queryId": "MACHINES_ALL_KERNELS"
+"queryId": "ALL_INSTANCES_NOT_AL2"
 "queryText": 
-  "MACHINES_ALL_KERNELS {
+  "ALL_INSTANCES_NOT_AL2 {
     source {
       LW_HE_MACHINES
     } 
     filter {
-      OS = 'Amazon Linux'
+      (OS <> 'Amazon Linux') OR (OS = 'Amazon Linux' AND OS_VERSION <> '2')
     }
     return distinct { 
       BATCH_START_TIME, 
@@ -22,5 +22,5 @@
       OS_VERSION, 
       OS_DESC
     }
-}"
+  }"
 

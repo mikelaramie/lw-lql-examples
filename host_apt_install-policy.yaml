@@ -1,0 +1,18 @@
+---
+  policyId: $account-lwpolicytest-02
+  title: User running apt install
+  enabled: true
+  policyType: Violation
+  alertEnabled: true
+  alertProfile: LW_HE_MACHINES_DEFAULT_PROFILE.HE_Machine_Violation
+  evalFrequency: Hourly
+  queryId: HOST_APT_INSTALL
+  limit: 1000
+  severity: high
+  description: |-
+    VM detected using 'apt install'.  See `HOST_APT_INSTALL` query for details
+  remediation: |-
+    Determine why apt was being used as opposed to configuration management
+  tags:
+    - lwpolicytest
+  
