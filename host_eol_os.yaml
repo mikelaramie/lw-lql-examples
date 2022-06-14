@@ -1,0 +1,19 @@
+"evaluatorId": ""
+"queryId": "HOST_EOL_OS"
+"queryText": 
+  "HOST_EOL_OS {
+    source {
+      LW_HE_MACHINES machine
+    }
+    filter {
+     (machine.OS = 'Ubuntu' AND (machine.OS_VERSION LIKE '16%' OR machine.OS_VERSION LIKE '14%'))
+     OR
+     (machine.OS = 'Debian GNU/Linux' AND machine.OS_VERSION LIKE '9%')
+    }
+    return distinct {
+      machine.HOSTNAME,
+      machine.OS,
+      machine.OS_DESC,
+      machine.OS_VERSION
+    }
+  }"

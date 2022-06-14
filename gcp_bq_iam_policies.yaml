@@ -1,0 +1,13 @@
+"evaluatorId": ""
+"queryId": "GCP_BQ_IAM_POLICIES"
+"queryText": 
+  "GCP_BQ_IAM_POLICIES {
+    source {
+      LW_CFG_GCP_BIGQUERY_DATASET_IAMPOLICY
+    } 
+
+    return distinct { 
+      URN,
+      RESOURCE_CONFIG:bindings
+    }
+  }"

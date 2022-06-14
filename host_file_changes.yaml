@@ -1,0 +1,22 @@
+"evaluatorId": ""
+"queryId": "HOST_FILE_CHANGES"
+"queryText": 
+  "HOST_FILE_CHANGES {
+    source {
+      LW_HA_FILE_CHANGES filechanges 
+      with (
+      LW_HE_MACHINES machine
+      )
+    }
+    filter {
+     filechanges.ACTIVITY = 'New' AND
+     machine.HOSTNAME = 'gke-cluster-01-pool-01-9fdadbe2-4eop' AND
+     filechanges.PATH = '/usr/bin/git-cvsserver'
+    }
+    return distinct {
+      machine.HOSTNAME,
+      filechanges.PATH,
+      filechanges.MID as fMID,
+      machine.MID as mMID
+    }
+  }"

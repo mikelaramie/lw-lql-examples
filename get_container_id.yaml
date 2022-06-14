@@ -1,0 +1,26 @@
+"evaluatorId": ""
+"queryId": "GET_CONTAINER_ID"
+"queryText": "
+  GET_CONTAINER_ID {
+    source {
+      LW_HE_MACHINES machine
+      with (
+      LW_HE_PROCESSES process,
+      LW_HE_CONTAINERS container
+      )
+    }
+    filter {
+     machine.HOSTNAME = 'gke-cluster-01-pool-01-9fdadbe2-wg5e' AND
+     process.PID = 18307 AND
+     container.REPO = 'us-docker.pkg.dev/gke-project-01-bd74d057/microservices-demo/frontend'
+    }
+    return distinct {
+      machine.HOSTNAME,
+      container.CONTAINER_ID,
+      process.PID,
+      process.PPID,
+      process.SID,
+      process.PROCESS_START_TIME,
+      process.CMDLINE
+    }
+  }"
