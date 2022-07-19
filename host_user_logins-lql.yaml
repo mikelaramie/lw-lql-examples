@@ -1,0 +1,24 @@
+"queryId": "LW_Custom_Host_Activity_User_Logins"
+"queryText":
+  "LW_Custom_Host_Activity_User_Logins {
+    source {
+      LW_HA_USER_LOGINS
+    }
+    filter {
+      USERNAME not in (
+      'puppet',
+      'chef',
+      'salt',
+      'gke-%'
+      )
+    }
+    return {
+      MID,
+      USERNAME,
+      HOSTNAME,
+      IP_ADDR,
+      TTY,
+      UID,
+      GID
+    }
+  }"

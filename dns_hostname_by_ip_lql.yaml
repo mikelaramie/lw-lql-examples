@@ -1,0 +1,17 @@
+"queryId": "DNS_HOSTNAME_BY_IP"
+"queryText": 
+  "DNS_HOSTNAME_BY_IP {
+    source {
+      LW_HA_DNS_REQUESTS
+    } 
+    filter {
+      HOST_IP_ADDR like '52.216.%'
+    }
+    return distinct { 
+      RECORD_CREATED_TIME,
+      MID,
+      SRV_IP_ADDR,
+      HOST_IP_ADDR,
+      HOSTNAME
+    }
+  }"

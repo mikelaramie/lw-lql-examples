@@ -1,0 +1,22 @@
+"evaluatorId": ""
+"queryId": "ALL_CONTAINER_DETAILS"
+"queryText": 
+  "ALL_CONTAINER_DETAILS {
+    source {
+      LW_HE_CONTAINERS
+    } 
+    filter {
+      MID = 5239511971170740 AND
+      REPO = 'us-docker.pkg.dev/gke-project-01-bd74d057/microservices-demo/emailservice'
+    }
+    return distinct { 
+      BATCH_START_TIME,
+      BATCH_END_TIME,
+      CONTAINER_ID,
+      CONTAINER_NAME,
+      REPO,
+      TAG,
+      PROPS_LABEL,
+      PROPS_ENV
+    }
+  }"

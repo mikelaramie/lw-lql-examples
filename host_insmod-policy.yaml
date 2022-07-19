@@ -1,0 +1,18 @@
+---
+  policyId: $account-lwpolicytest-03
+  title: insmod invocation detected
+  enabled: true
+  policyType: Violation
+  alertEnabled: true
+  alertProfile: Custom_HE_Process_Profile.HE_Detailed_Process_Violation
+  evalFrequency: Hourly
+  queryId: HOST_INSMOD
+  limit: 1000
+  severity: high
+  description: |-
+    Monitored system detected invoking insmod command to insert a kernel module
+  remediation: |-
+    Determine why insmod was was invoked and remove the inserted module using rmmod if necessary
+  tags:
+    - lwpolicytest
+  

@@ -1,0 +1,14 @@
+{
+  "data": {
+    "alertProfileId": "Custom_HE_Process_Profile",
+    "extends": "LW_HE_PROCESSES_DEFAULT_PROFILE",
+    "alerts": [
+      {
+        "name": "HE_Detailed_Process_Violation",
+        "eventName": "LW Host Entity Detailed Process Violation Alert",
+        "description": "{{_OCCURRENCE}} Violation for process {{EXE_PATH}}",
+        "subject": "{{_OCCURRENCE}} Violation detected for process {{EXE_PATH}} on Machine ID {{MID}}:  {{USERNAME}} executed {{CMDLINE}}"
+      }
+    ]
+  }
+}

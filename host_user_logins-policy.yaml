@@ -1,0 +1,18 @@
+---
+  policyId: $account-lwpolicytest-04
+  title: Interactive user login detected
+  enabled: true
+  policyType: Violation
+  alertEnabled: true
+  alertProfile: Custom_USER_INTERACTIVE_LOGIN_PROFILE.HA_User_Logins_Custom_Alert
+  evalFrequency: Hourly
+  queryId: LW_Custom_Host_Activity_User_Logins
+  limit: 1000
+  severity: high
+  description: |-
+    Non-automation user login detected on monitored system
+  remediation: |-
+    Determine why user was logged into system and instruct on proper methods to modify system settings
+  tags:
+    - lwpolicytest
+  

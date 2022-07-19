@@ -1,0 +1,19 @@
+"queryId": "HOST_INSMOD"
+"queryText": 
+  "HOST_INSMOD {
+    source {
+      LW_HE_PROCESSES process with 
+      (
+        LW_HE_MACHINES machine,
+        LW_HE_USERS user
+      )
+    }
+    filter {
+      process.CMDLINE like '%insmod %'
+    }
+    return distinct {
+      process.CMDLINE,
+      machine.HOSTNAME,
+      user.USERNAME
+    }
+  }"

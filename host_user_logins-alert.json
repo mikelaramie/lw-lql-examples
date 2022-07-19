@@ -1,0 +1,14 @@
+{
+  "data": {
+    "alertProfileId": "Custom_USER_INTERACTIVE_LOGIN_PROFILE",
+    "extends": "LW_HA_USER_LOGINS_DEFAULT_PROFILE",
+    "alerts": [
+      {
+        "name": "HA_User_Logins_Custom_Alert",
+        "eventName": "LW Host Interactive Login Violation Alert",
+        "description": "{{_OCCURRENCE}} Interactive login violation for user {{USERNAME}}",
+        "subject": "{{_OCCURRENCE}} Violation detected for user {{USERNAME}} on Host {{HOSTNAME}}:  {{USERNAME}} logged in interactively"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+"queryId": "LW_Custom_Host_SSH_Connections"
+"queryText":
+  "LW_Custom_Host_SSH_Connections {
+    source {
+        LW_HA_CONNECTION_SUMMARY,
+        array_to_rows(ENDPOINT_DETAILS) as (CONNECTIONS)
+    }
+    filter {
+        CONNECTIONS:dst_port = 22 AND
+        SRC_ENTITY_ID:ip_internal = 0
+    }
+    return distinct {
+        BATCH_START_TIME,
+        BATCH_END_TIME,
+        SRC_ENTITY_ID,
+        DST_ENTITY_ID,
+        DST_IN_BYTES,
+        DST_OUT_BYTES,
+        ENDPOINT_DETAILS,
+        NUM_CONNS
+    }
+  }"
+
+AND
+        SOURCE_IDENTITY:ip_internal = 0
